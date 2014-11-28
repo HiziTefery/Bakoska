@@ -1,0 +1,177 @@
+* {
+  margin: 0;
+}
+
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -142px; 
+}
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+.site-footer, .page-wrap:after {
+  height: 142px;   
+}
+
+.site-footer {
+  text-align: center;
+  color: #ffffff;
+  background: orange;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  bottom: 0;
+}
+.site-footer p {
+    margin-top:3%;
+}
+
+body {
+    font-family: Verdana, sans-serif;
+    margin:0;
+    padding:0;
+    height:100%;
+}
+
+#center {
+    display: inline-block;
+}
+#header {
+    width: 100%;
+    background-color: #668284;
+    text-align: center;
+    padding-top: 1%;
+    height: 10%;
+}
+#menu {
+    float: left;
+    width: 10%;
+    background-color: #B9D7D9;
+    height: 75%;
+}
+
+#data {   
+    border:solid;
+    overflow-y: scroll;
+    width: 1020px;
+    height: 600px;
+    margin: auto;
+    margin-top: 2%;
+}
+
+#data_table {
+    color: #333;
+    font-size: 1em;
+    width: 1005px; 
+    border-spacing: 0; 
+}
+
+#data_table td, th { 
+border: 1px solid;
+height: 30px; 
+transition: all 0.3s;
+}
+
+#data_table th {
+background: #DFDFDF;
+font-weight: bold;
+}
+
+#data_table td {
+background: #FAFAFA;
+text-align: center;
+}
+
+#data_table tr:nth-child(even) td { background: #F1F1F1; }   
+
+#data_table  tr:nth-child(odd) td { background: #FEFEFE; }  
+
+#data_table tr td:hover { background: #666; color: #FFF; } 
+
+#content {
+height:75%;
+display: inline-block;
+background: #aaaaaa;
+width: 90%;
+float: right;
+}
+
+
+.styled-select select {
+background: transparent;
+width: 268px;
+padding: 5px;
+font-size: 16px;
+line-height: 1;
+border: 0;
+border-radius: 0;
+height: 34px;
+}
+
+.styled-select {
+width: 240px;
+height: 34px;
+overflow: hidden;
+border: 1px solid #ccc;
+}
+label {
+color: #668284;
+font-weight: bold;
+display: block;
+width: 150px;
+float: left;
+}
+label:after { content: ": " }
+
+#dataBitsLabel{
+}
+
+#baudrateLabel {
+}
+
+#stopBitsLabel {
+}
+
+#deviceLabel {
+}
+
+#parityLabel {
+}
+
+#selectData {
+}
+
+#selectStop {
+}
+
+#selectDevice {
+}
+
+#selectParity {
+}
+
+#menu a {
+color: #002640;
+font-size: 15px;
+text-decoration: underline;
+padding-left: 10px;
+}
+
+#menu a:hover{
+color: #A3B1BA;
+text-decoration: none; 
+}
+
+#form4 {
+}
+
+#form4 table {
+    width:60%; 
+    margin-left:25%; 
+    margin-right:10%;
+    border:0;
+    margin-top:9%;
+    height:50%;
+}
