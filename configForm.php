@@ -11,7 +11,12 @@
 	$html .= '</select>';
 	return $html;
     }
-	
+	function test_input($data) {
+	  $data = trim($data);
+	  $data = stripslashes($data);
+	  $data = htmlspecialchars($data);
+	  return $data;
+	}
 			    if (isset($_POST['Submit4'])) {
 				$baudratePosted = (test_input($_POST['baudText']));
 				$dataSelect = test_input($_POST['dataSelect']);
@@ -19,7 +24,7 @@
 				$paritySelect = test_input($_POST['paritySelect']);
 				$deviceSelect = test_input($_POST['deviceSelect']);
 				$stopSelect = test_input($_POST['stopBitsSelect']);
-				echo $baudratePosted;
+
 
 				// configuration
 				$dbtype	= "mysql";
@@ -35,13 +40,13 @@
 				    } catch(PDOException $e) {
 					echo 'ERROR: ' . $e->getMessage();
 				    }
-				    $id = 2;
+				    $id = 3;
 				    // query
 				    $sql = "UPDATE configurationData  
 					    SET device=?,baudrate=?,parity=?,data_bits=?,stop_bits=?,communication_mode=?
 						    WHERE id=?";
 				    $q = $conn->prepare($sql);
-				    $q->execute(array($deviceSelect,$baudratePosted,$paritySelect,$dataSelect,$stopBitsSelect,$modeSelect,$id));
+				    $q->execute(array($deviceSelect,$baudratePosted,$paritySelect,$dataSelect,$stopSelect,$modeSelect,$id));
 				}
 				catch(PDOException $e) {
 				    echo $e->getMessage();
