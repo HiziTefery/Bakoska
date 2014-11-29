@@ -120,37 +120,9 @@ label {
 color: #668284;
 font-weight: bold;
 display: block;
-width: 150px;
 float: left;
 }
 label:after { content: ": " }
-
-#dataBitsLabel{
-}
-
-#baudrateLabel {
-}
-
-#stopBitsLabel {
-}
-
-#deviceLabel {
-}
-
-#parityLabel {
-}
-
-#selectData {
-}
-
-#selectStop {
-}
-
-#selectDevice {
-}
-
-#selectParity {
-}
 
 #menu a {
 color: #002640;

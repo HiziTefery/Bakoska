@@ -1,6 +1,28 @@
 <html>
     <head>
 	<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+	<script>
+	    function isInt(value) {
+	      return !isNaN(value) && 
+		     parseInt(Number(value)) == value && 
+		     !isNaN(parseInt(value, 10));
+	    }
+	    function validateForm() {
+		var x = document.forms["form4"]["baudText"].value;
+		if (x==null || x=="") {
+		    alert("Baudrate name must be filled out");
+		    return false;
+		}
+		if (!isInt(x)) {
+		    alert("Baudrate must be number!");
+		    return false;
+		}
+		if ((x>200000) || (x<3000)) {
+		    alert("Baudrate must be in interval  between 3000");
+		    return false;
+		}
+	}
+	</script>
     </head>
     <body id="body">
     	<div class="page-wrap">

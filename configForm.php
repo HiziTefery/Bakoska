@@ -1,4 +1,5 @@
 <?php
+
     function generateSelect($name, $options, $optionToSelect, $classOfSelect, $idOfSelect) {
 	$html = '<select id="'.$idOfSelect.'"class="'.$classOfSelect.'" name="'.$name.'">';
 	foreach ($options as $option => $value) {
@@ -10,7 +11,45 @@
 	$html .= '</select>';
 	return $html;
     }
-	    
+	
+			    if (isset($_POST['Submit4'])) {
+				$baudratePosted = (test_input($_POST['baudText']));
+				$dataSelect = test_input($_POST['dataSelect']);
+				$modeSelect = test_input($_POST['modeSelect']);
+				$paritySelect = test_input($_POST['paritySelect']);
+				$deviceSelect = test_input($_POST['deviceSelect']);
+				$stopSelect = test_input($_POST['stopBitsSelect']);
+				echo $baudratePosted;
+
+				// configuration
+				$dbtype	= "mysql";
+				$dbhost	= "localhost";
+				$dbname	= "rpi_db";
+				$dbuser	= "pi_user";
+				$dbpass	= "arthas4259";
+				try {
+				    // database connection
+				    try{
+					$conn = new PDO("mysql:host=$dbhost;dbname=$dbname",$dbuser,$dbpass);
+					$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+				    } catch(PDOException $e) {
+					echo 'ERROR: ' . $e->getMessage();
+				    }
+				    $id = 2;
+				    // query
+				    $sql = "UPDATE configurationData  
+					    SET device=?,baudrate=?,parity=?,data_bits=?,stop_bits=?,communication_mode=?
+						    WHERE id=?";
+				    $q = $conn->prepare($sql);
+				    $q->execute(array($deviceSelect,$baudratePosted,$paritySelect,$dataSelect,$stopBitsSelect,$modeSelect,$id));
+				}
+				catch(PDOException $e) {
+				    echo $e->getMessage();
+				}
+
+				    
+			    }
+
 	$servername = "localhost";
 	$username = "pi_user";
 	$password = "arthas4259";
@@ -37,7 +76,7 @@
 		$paritySelect = generateSelect('paritySelect',$parityArray, $row["parity"],'styled-select','selectParity');	
 		$stopBitsSelect = generateSelect('stopBitsSelect',$stopBitsArray, $row["stop_bits"],'styled-select','selectStop');
 		$deviceSelect = generateSelect('deviceSelect',$deviceArray, $row["device"],'styled-select','selectDevice');
-	    echo"<Form Name='form4' Method='POST' id='form4' ACTION='".($_SERVER['REQUEST_URI'])."'>
+	    echo"<Form Name='form4' Method='POST' id='form4' ACTION='".htmlspecialchars($_SERVER['REQUEST_URI'])."' onsubmit= 'return validateForm()'>
 		<div id='contentDiv'>
 
 			<table id='configTable'>
@@ -47,10 +86,10 @@
 			    </td>
 			</tr>
 			<tr>
-				<td width='30%'>
+				<td width='50%'>
 					<label id='dataBitsLabel'> Number of Data Bits</label>
 				</td>
-				<td width='70%'>
+				<td width='50%'>
 					$dataSelect
 				</td>
 			</tr>
@@ -91,7 +130,8 @@
 					<label id='baudrateLabel'> Baudrate</label>
 				</td>
 				<td>
-					<input type='text' name='Text1' id='textBaudrate'>
+					<input type='text' name='baudText' id='baudText' value='".$row["baudrate"]."'>
+					<span class='error'>* $baudEmptyError
 				</td>
 			</tr>
 			<tr>	
@@ -109,3 +149,4 @@
 	}
 	$conn->close();
 ?>
+
