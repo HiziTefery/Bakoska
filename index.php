@@ -38,6 +38,13 @@
 	    </div>	
 	    <div id="content">
 	    	<?php
+
+				$dbtype	= "mysql";
+				$dbhost	= "localhost";
+				$dbname	= "rpi_db";
+				$dbuser	= "pi_user";
+				$dbpass	= "arthas4259";
+
                             if (isset($_GET['page'])) {
                                 $file=$_GET['page'];
                                 $file2= dirname($_SERVER['SCRIPT_FILENAME'])."/".$file.".php";
