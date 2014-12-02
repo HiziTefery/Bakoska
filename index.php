@@ -1,4 +1,9 @@
+<?PHP
+    include "sessionControl.php";
+?>
 <html>
+
+
     <head>
 	<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
 	<script>
@@ -30,20 +35,18 @@
 		    <h1>Universal tool for measuring physical variables based on platform Raspberry Pi</h1>
 	    </div>
 	    <div id="menu">
-		   <a href="/index.php?page=home">Main menu</a>
+		   <a href="/index.php?page=home"><button type="button">Main menu</button></a>
 		   <br>
-		   <a href="/index.php?page=basicForm">Data</a>
+		   <a href="/index.php?page=basicForm"><button type="button">Data</button></a>
 		   <br>
-		   <a href="/index.php?page=configForm">Settings</a>
+		   <a href="/index.php?page=configForm"><button type="button">Settings</button></a>
+           <br>
+           <a href="login2.php"><button type="button">Log out</button></a>
 	    </div>	
 	    <div id="content">
 	    	<?php
 
-				$dbtype	= "mysql";
-				$dbhost	= "localhost";
-				$dbname	= "rpi_db";
-				$dbuser	= "pi_user";
-				$dbpass	= "arthas4259";
+                    include "dbConfig.php";
 
                             if (isset($_GET['page'])) {
                                 $file=$_GET['page'];
@@ -62,7 +65,7 @@
                             } else {
                                 include "home.php";
                             }
-                        ?>
+            ?>
 	    </div>
 	</div>
 	    <div class="site-footer">

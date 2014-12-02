@@ -1,5 +1,7 @@
 <?php
-try {
+include "sessionControl.php";
+try 
+{
     // database connection
     try{
 	$conn = new PDO("mysql:host=$dbhost;dbname=$dbname",$dbuser,$dbpass);
@@ -11,10 +13,11 @@ try {
     $rowsFound = $data->rowCount();
     if($rowsFound > 0) {
 	echo "
-	    <div id='data'><table id=data_table><tr><th>ID</th><th>temperature</th><th>barometric pressure</th><th>humidity</th></tr>";
+	    <div id='data'><table id=data_table><tr><th>ID</th><th>temperature</th><th>barometric pressure</th><th>humidity</th><th>timestamp of measurement</th></tr>";
 	// output data of each row
-	foreach($data as $row) {	
-	    echo "<tr><td>".$row["id"]."</td><td>".$row["temperature"]."</td><td>".$row["barometric_pressure"]."</td><td>".$row["humidity"]."</td></tr>";
+    foreach($data as $row) 
+    {	
+	    echo "<tr><td>".$row["id"]."</td><td>".$row["temperature"]."</td><td>".$row["barometric_pressure"]."</td><td>".$row["humidity"]."</td><td>".$row["timestamp_of_measurement"]."</td></tr>";
 	}
 	echo "</table></div>";
 
@@ -24,7 +27,8 @@ try {
     }
     $conn = null;
 }
-catch(PDOException $e) {
+catch(PDOException $e) 
+{
     echo $e->getMessage();
 }
 ?>

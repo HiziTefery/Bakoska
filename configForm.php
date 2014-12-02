@@ -1,4 +1,5 @@
 <?php
+include "sessionControl.php";
 
     function generateSelect($name, $options, $optionToSelect, $classOfSelect, $idOfSelect) {
 	$html = '<select id="'.$idOfSelect.'"class="'.$classOfSelect.'" name="'.$name.'">';
@@ -18,7 +19,7 @@
 	  return $data;
 	}
 	if (isset($_POST['Submit4'])) {
-	    $baudratePosted = (test_input($_POST['baudText']));
+	    $baudratePosted = htmlspecialchars(test_input($_POST['baudText']));
 	    $dataSelect = test_input($_POST['dataSelect']);
 	    $modeSelect = test_input($_POST['modeSelect']);
 	    $paritySelect = test_input($_POST['paritySelect']);
@@ -34,7 +35,7 @@
 		} catch(PDOException $e) {
 		    echo 'ERROR: ' . $e->getMessage();
 		}
-		$id = 3;
+		$id = 1;
 		// query
 		$sql = "UPDATE configurationData  
 		    SET device=?,baudrate=?,parity=?,data_bits=?,stop_bits=?,communication_mode=?
