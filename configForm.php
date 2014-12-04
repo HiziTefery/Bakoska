@@ -81,10 +81,10 @@ include "sessionControl.php";
 		    </td>
 		    </tr>
 		    <tr>
-		    <td width='50%'>
+		    <td>
 		    <label id='dataBitsLabel'> Number of Data Bits</label>
 		    </td>
-		    <td width='50%'>
+		    <td >
 		    $dataSelect
 		    </td>
 		    </tr>
@@ -135,7 +135,6 @@ include "sessionControl.php";
 		    </td>
 		    </tr>
 		    </table>
-		    </div>
 		    <form>";
 	    }
 	}

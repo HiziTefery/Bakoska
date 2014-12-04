@@ -13,7 +13,7 @@ try
     $rowsFound = $data->rowCount();
     if($rowsFound > 0) {
 	echo "
-	    <div id='data'><table id=data_table><tr><th>ID</th><th>temperature</th><th>barometric pressure</th><th>humidity</th><th>timestamp of measurement</th></tr>";
+	    <div class='table-container'><table id=data_table><tr><th>ID</th><th>temperature</th><th>barometric pressure</th><th>humidity</th><th>timestamp of measurement</th></tr>";
 	// output data of each row
     foreach($data as $row) 
     {	

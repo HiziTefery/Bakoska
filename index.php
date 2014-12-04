@@ -32,16 +32,16 @@
     <body id="body">
     	<div class="page-wrap">
 	    <div id="header">
-		    <h1>Universal tool for measuring physical variables based on platform Raspberry Pi</h1>
+		    <h2>Universal tool for measuring physical variables based on platform Raspberry Pi</h1>
 	    </div>
 	    <div id="menu">
-		   <a href="/index.php?page=home"><button type="button">Main menu</button></a>
+		   <a href="/index.php?page=home">Main menu</a>
 		   <br>
-		   <a href="/index.php?page=basicForm"><button type="button">Data</button></a>
+		   <a href="/index.php?page=basicForm">Data</a>
 		   <br>
-		   <a href="/index.php?page=configForm"><button type="button">Settings</button></a>
+		   <a href="/index.php?page=configForm">Settings</a>
            <br>
-           <a href="login2.php"><button type="button">Log out</button></a>
+           <a href="login2.php">Log out</a>
 	    </div>	
 	    <div id="content">
 	    	<?php
@@ -68,8 +68,5 @@
             ?>
 	    </div>
 	</div>
-	    <div class="site-footer">
-		    <p>Made by Lubos Hyzak - 2014</p>
-	    </div>
     </body>
 </html>

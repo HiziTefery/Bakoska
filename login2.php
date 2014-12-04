@@ -103,7 +103,7 @@ else
             if(crypt($php_password,$pwdHash) == $pwdHash) {
                 /*** tell the user we are logged in ***/
                 session_start();
-                $message = 'You are now logged in';
+                session_regenerate_id(true);
                 $_SESSION['user_id'] = $user_id;
                 header ("Location: index.php");
 

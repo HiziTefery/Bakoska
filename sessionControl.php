@@ -1,6 +1,7 @@
 
 <?PHP
 session_start();
+session_regenerate_id(true);
 if (!(isset($_SESSION['user_id']) && $_SESSION['user_id'] != '')) {
 header ("Location: login2.php");
 }
