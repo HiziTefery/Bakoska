@@ -32,9 +32,6 @@ body {
   a {
     font-size: 8pt;
   }
-  select {
-    width = 500px;
-  }
 }
 @media only screen and (max-width: 480px ) {
   a {
@@ -51,7 +48,7 @@ body {
     width: 100%;
     background-color: #1D2F3E;
     text-align: center;
-    height: 65px;
+    height: 68px;
     padding-top: 1%;
 }
 h2 {
@@ -62,7 +59,7 @@ h2 {
     float: left;
     width: 15%;
     background-color: #152737;
-    height: 92%;
+    height: 91%;
     font-size:15pt;
 }
 
@@ -71,10 +68,13 @@ h2 {
 	overflow-y: auto;
 	margin: 0 0 1em;
 }
-.table-container{
-    overflow: auto;
-    margin-top: 2%;
+.table-container div{
     -webkit-overflow-scrolling: touch;
+    overflow: auto;
+    height: 90%;
+}
+.table-container{
+    margin-top: 2%;
     height: 90%;
 }
 @media screen and (min-width: 900px){
@@ -88,7 +88,7 @@ h2 {
     border-spacing: 0; 
     overflow: auto;
     border: 1px solid;
-    height:90%;
+    height:91%;
 }
 
 #data_table td, th { 
@@ -114,7 +114,7 @@ text-align: center;
 #data_table tr td:hover { background: #666; color: #FFF; } 
 
 #content {
-height: 92%;
+height: 91%;
 display: inline-block;
 width: 85%;
 background-color: #C9E1C1;
@@ -123,12 +123,15 @@ float: right;
 
 
 .styled-select {
-width: 240px;
+width: 42%;
 height: 34px;
 overflow: hidden;
 border: 1px solid #ccc;
 }
 
+#baudText {
+    width: 42%;
+}
 label {
 color: #0FB493;
 font-weight: bold;
