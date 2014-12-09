@@ -76,10 +76,9 @@ include "sessionControl.php";
 
 		    <table id='configTable'>
 		    <tr>
-		    <td>
-		    <p><span class='error'>* required field.</span></p>
-		    </td>
-		    </tr>
+            <td>
+            <h2>Configuration Data</h2>
+		    <td >
 		    <tr>
 		    <td>
 		    <label id='dataBitsLabel'> Number of Data Bits</label>
@@ -127,6 +126,11 @@ include "sessionControl.php";
 		    <td>
 		    <input type='text' name='baudText' id='baudText' value='".$row["baudrate"]."'>
 		    <span class='error'>* $baudEmptyError
+		    </td>
+		    </tr>
+		    <tr>
+		    <td>
+		    <p><span class='error'>* required field</span></p>
 		    </td>
 		    </tr>
 		    <tr>	

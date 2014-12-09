@@ -1,6 +1,15 @@
 * {
   margin: 0;
 }
+#addUserDiv {
+margin:auto;
+}
+#userForm {
+    margin-top: 9%;
+}
+#userForm h2 {
+    color: #669900;
+}
 
 .page-wrap {
   height: 100%;
@@ -46,7 +55,7 @@ body {
 }
 #header {
     width: 100%;
-    background-color: #1D2F3E;
+    background-color: #152737;
     text-align: center;
     height: 68px;
     padding-top: 1%;
@@ -81,6 +90,10 @@ h2 {
     .table-container {
     }
 }
+#userTable {
+    margin: auto;
+    height: 50%;
+}
 #data_table {
     margin: auto;
     color: #333;
@@ -88,7 +101,6 @@ h2 {
     border-spacing: 0; 
     overflow: auto;
     border: 1px solid;
-    height:91%;
 }
 
 #data_table td, th { 
@@ -161,6 +173,15 @@ text-decoration: none;
     height:50%;
     
 }
-
+#warningDiv {
+    margin-top: 20%;
+    text-align: center;
+}
+#warningDiv h2 {
+    color: #669900;
+}
+#form4 table h2{
+    color: #669900;
+}
 #form4 table td {
     width: 400px;}

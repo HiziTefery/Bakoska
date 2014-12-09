@@ -43,38 +43,36 @@ if(!areCookiesEnabled()) {
 session_start();
 session_unset();
 session_destroy();
-/*** check that both the username, password have been submitted ***/
-if(!isset( $_POST['phpro_username'], $_POST['phpro_password']))
+if(!isset( $_POST['username'], $_POST['password']))
 {
     $message = 'Please enter a valid username and password';
 }
-/*** check the username is the correct length ***/
-elseif (strlen( $_POST['phpro_username']) > 20 || strlen($_POST['phpro_username']) < 4)
+elseif (strlen( $_POST['username']) > 20 || strlen($_POST['username']) < 4)
 {
     $message = 'Incorrect Length for Username';
 }
-/*** check the password is the correct length ***/
-elseif (strlen( $_POST['phpro_password']) > 20 || strlen($_POST['phpro_password']) < 4)
+
+elseif (strlen( $_POST['password']) > 20 || strlen($_POST['password']) < 4)
 {
     $message = 'Incorrect Length for Password';
 }
-/*** check the username has only alpha numeric characters ***/
-elseif (ctype_alnum($_POST['phpro_username']) != true)
+
+elseif (ctype_alnum($_POST['username']) != true)
 {
-    /*** if there is no match ***/
+
     $message = "Username must be alpha numeric";
 }
-/*** check the password has only alpha numeric characters ***/
-elseif (ctype_alnum($_POST['phpro_password']) != true)
+
+elseif (ctype_alnum($_POST['password']) != true)
 {
-        /*** if there is no match ***/
+
         $message = "Password must be alpha numeric";
 }
 else
 {
-    /*** if we are here the data is valid and we can insert it into database ***/
-    $php_username = filter_var($_POST['phpro_username'], FILTER_SANITIZE_STRING);
-    $php_password = filter_var($_POST['phpro_password'], FILTER_SANITIZE_STRING);
+
+    $php_username = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
+    $php_password = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
     include "dbConfig.php";
     try
     {
@@ -110,11 +108,11 @@ else
             }
             else {
                 $message = 'Login Failed - incorrect password!';
+                session_start();
+                $_SESSION['login'] = '';
             }
 
         }
-
-
     }
     catch(Exception $e)
     {
@@ -128,7 +126,9 @@ else
         .pagecontainer {display:none;}
     </style>
     <div class="noscriptmsg">
-    You don't have javascript enabled.Please enable Javascript!!!.
+    You don't have javascript enabled.Please enable Javascript!!!
+    </br>
+    Application doesn't work without javascript enabled!!!
     </div>
 </noscript>
 <html>
@@ -141,12 +141,12 @@ else
 <form action="login2.php" method="post">
 <fieldset>
 <p>
-<label for="phpro_username">Username</label>
-<input type="text" id="phpro_username" name="phpro_username" value="" maxlength="20" />
+<label for="username">Username</label>
+<input type="text" id="username" name="username" value="" maxlength="20" />
 </p>
 <p>
-<label for="phpro_password">Password</label>
-<input type="password" id="phpro_password" name="phpro_password" value="" maxlength="20" />
+<label for="password">Password</label>
+<input type="password" id="password" name="password" value="" maxlength="20" />
 </p>
 <p>
 <input type="submit" value="Login" />

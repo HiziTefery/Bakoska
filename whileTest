@@ -1,0 +1,30 @@
+import time
+import sys
+import MySQLdb as mdb
+
+try:
+    con = mdb.connect('localhost', 'pi_user', 'arthas4259', 'rpi_db')
+    while True:
+        with con:
+            cur = con.cursor()
+            cur.execute("SELECT * FROM configurationData")
+            row = cur.fetchone()
+            configuration = list(row)
+            print configuration
+            for x in range(1, 7):
+                if configuration[x] != row[x]:
+                    configuration[x] = row[x]
+            print configuration
+            cur = con.cursor()
+            cur.execute("SELECT * FROM measuredData")
+            rows = cur.fetchall()
+            for row in rows:
+                print row
+        time.sleep(4)
+except _mysql.Error, e:
+    print "Error %d: %s" % (e.args[0], e.args[1])
+    sys.exit(1)
+
+finally:
+    if con:
+        con.close()

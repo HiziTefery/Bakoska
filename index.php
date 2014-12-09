@@ -41,6 +41,8 @@
 		   <br>
 		   <a href="/index.php?page=configForm">Settings</a>
            <br>
+           <a href="/index.php?page=addNewUser">Add User</a>
+           <br>
            <a href="login2.php">Log out</a>
 	    </div>	
 	    <div id="content">
