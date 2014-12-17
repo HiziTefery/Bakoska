@@ -9,7 +9,7 @@ try
     } catch(PDOException $e) {
 	echo 'ERROR: ' . $e->getMessage();
     }
-    $data = $conn->query("SELECT * FROM measuredData");
+    $data = $conn->query("SELECT * FROM measuredData ORDER BY timestamp_of_measurement DESC");
     $rowsFound = $data->rowCount();
     if($rowsFound > 0) {
 	echo "

@@ -1,0 +1,12 @@
+INSTALACIA PYTHONa
+$ sudo apt-get install python-dev
+INSTALACIA PIPu na dotahovanie packageov jazyka PYTHON
+$ sudo apt-get install pip
+INSTALACIA python-mysqldb API na pristup k databaze prostrednicvom jazyka PYTHON
+$ sudo apt-get install python-mysqldb
+INSTALACIA kniznice potrebnej k ovladaniu serioveho rozhrania pomocou jazyka PYTHON
+na tejto kniznice je zavila aj kniznica MINIMAL MODBUS, ktoru pouzivam ako implementaciu
+protokolu MODBUS v jazyku PYTHON
+$ sudo pip install -U pyserial
+INSTALACIA samotnej kniznice minimalModbus
+$ sudo pip install -U minimalmodbus

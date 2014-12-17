@@ -35,7 +35,7 @@
 		    <h2>Universal tool for measuring physical variables based on platform Raspberry Pi</h1>
 	    </div>
 	    <div id="menu">
-		   <a href="/index.php?page=home">Main menu</a>
+		   <a href="/index.php?page=home">Menu</a>
 		   <br>
 		   <a href="/index.php?page=basicForm">Data</a>
 		   <br>

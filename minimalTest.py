@@ -1,17 +1,14 @@
 #!/usr/bin/python
 
 import sys
-import time
+import serial
+import minimalmodbus
 
-def main_loop():
-    while 1:
-        print "kokot"
-        time.sleep(1)
-
-
-if __name__ == '__main__':
-    try:
-        main_loop()
-    except KeyboardInterrupt:
-        print >> sys.stderr, '\nExiting by user request.\n'
-        sys.exit(0)
+instrument = minimalmodbus.Instrument('/dev/ttyAMA0', 1)
+instrument.serial.baudrate = 115200
+instrument.serial.bytesize = 8
+instrument.serial.parity = serial.PARITY_NONE
+instrument.serial.stopbits = 1
+instrument.serial.timeout = 0.05
+temperature = instrument.read_register(1, 1)
+print temperature
